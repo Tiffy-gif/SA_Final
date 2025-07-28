@@ -1,0 +1,163 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+#content {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc; /* Light background */
+}
+#left {
+    width: 280px; /* Fixed width for sidebar */
+    background-color: #4a007a; /* Dark purple background for sidebar */
+    color: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    position: fixed; /* Keep sidebar fixed */
+    height: 100%; /* Full height */
+    z-index: 1000; /* Ensure it's above other content */
+}
+#right {
+    flex-grow: 1;
+    margin-left: 280px; /* Offset for fixed sidebar */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+#rightHeader {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+#rightHeader h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+#hamburgerMenu {
+    display: none; /* Hidden by default on larger screens */
+}
+#hamburgerMenu input[type="checkbox"] {
+    display: none;
+}
+#hamburgerMenu label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001; /* Above sidebar */
+}
+#hamburgerMenu label div {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+#hamburgerMenu input[type="checkbox"]:checked ~ label .line-01 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#hamburgerMenu input[type="checkbox"]:checked ~ label .line-02 {
+    opacity: 0;
+}
+#hamburgerMenu input[type="checkbox"]:checked ~ label .line-03 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+#hamburgerMenu input[type="checkbox"]:checked ~ #wholeLinks {
+    transform: translateX(0);
+}
+#wholeLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px; /* Same width as sidebar */
+    height: 100%;
+    background-color: #4a007a; /* Dark purple background */
+    transform: translateX(-100%); /* Hidden by default */
+    transition: transform 0.3s ease-in-out;
+    padding-top: 5rem; /* Space for hamburger icon */
+    z-index: 999; /* Below hamburger icon */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+}
+#wholeLinks .links {
+    width: 100%;
+}
+#wholeLinks .box {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+#wholeLinks .box h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+#wholeLinks .box ul {
+    list-style: none;
+    padding: 0;
+}
+#wholeLinks .box ul li {
+    margin-bottom: 0.5rem;
+}
+#dropdownAvatar:not(.hidden) {
+    opacity: 1;
+    transform: scale(1) translate3d(0px, var(--tw-translate-y, 0px), 0px); /* Ensure translate3d from Flowbite/Popper is maintained */
+}
+#wholeLinks .box ul li a {
+    color: #e0b0ff; /* Lighter purple for links */
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: block;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+#wholeLinks .box ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #left {
+        transform: translateX(-100%); /* Hide sidebar by default on mobile */
+        width: 0; /* Collapse width */
+        padding: 0;
+    }
+    #right {
+        margin-left: 0; /* No offset */
+    }
+    #rightHeader {
+        justify-content: flex-end; /* Push items to right */
+        position: relative; /* For hamburger positioning */
+    }
+    #rightHeader .user-info {
+        margin-right: 1rem; /* Space from hamburger */
+    }
+    #hamburgerMenu {
+        display: block; /* Show hamburger menu */
+        position: absolute; /* Position relative to header */
+        left: 1.5rem; /* Align to left */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    /* When hamburger is checked, show the sidebar */
+    #hamburgerMenu input[type="checkbox"]:checked ~ #wholeLinks {
+        transform: translateX(0);
+    }
+    /* The main #left sidebar is hidden on mobile and only the #wholeLinks (mobile menu) appears */
+}

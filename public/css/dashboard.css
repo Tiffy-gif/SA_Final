@@ -1,0 +1,725 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+body {
+    margin: 0;
+    background-color: #e6e9f2;
+    font-family: "Inter", sans-serif;
+    color: #2c2f4a;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.main-container {
+    margin-left: 72px;
+    padding: 36px 48px 48px;
+    max-width: 1320px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Header */
+.header {
+    margin-bottom: 32px;
+}
+.header h1 {
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0 0 6px 0;
+    color: #2c2f4a;
+}
+.header p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    color: #7e85a1;
+}
+
+/* Top cards */
+.card-row {
+    display: flex;
+    gap: 21px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+.top-card {
+    background-color: #fff;
+    box-shadow: 0 5px 12px rgb(67 62 226 / 0.4);
+    border-radius: 18px;
+    flex: 1 1 220px;
+    min-width: 220px;
+    padding: 20px 22px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: default;
+    user-select: none;
+}
+.top-card .icon {
+    background: linear-gradient(135deg, #2c2f4a 0%, #433ee2 100%);
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 7px rgb(67 62 226 / 0.3);
+    color: #fff;
+    font-size: 24px;
+}
+
+.top-card h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 0 6px 0;
+    color: #2c2f4a;
+}
+.top-card p {
+    font-size: 12px;
+    margin: 0;
+    color: #7e85a1;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    user-select: text;
+}
+
+/* Dashboard Body Grid */
+.dashboard-body {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    /* container for left and right big columns */
+}
+
+/* Left side main content */
+.dashboard-left {
+    flex-grow: 1;
+    min-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Students Performance & Attendance report wrapper */
+.left-upper-cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Students Performance Card */
+.students-performance,
+.attendance-report {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 14px 44px rgb(56 52 85 / 0.06);
+    padding: 20px 24px 22px 24px;
+    flex: 1 1 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+.students-performance h3,
+.attendance-report h3 {
+    font-weight: 600;
+    color: #2c2f4a;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+}
+
+/* Students Performance top filter */
+.students-filters {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7e85a1;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+.students-filters select {
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px 14px 2px 6px;
+    border-radius: 12px;
+    border: 1.5px solid #dee3f0;
+    font-weight: 400;
+    color: #7e85a1;
+    outline-offset: 2px;
+    min-width: 60px;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="none" height="10" stroke="%237e85a1" stroke-width="2" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>')
+        no-repeat right 8px center;
+    background-size: 12px;
+}
+.students-filters select:focus {
+    border-color: #433ee2;
+}
+
+/* Student entry wrapper */
+.student-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.student-entry:last-child {
+    margin-bottom: 0;
+}
+/* Student avatar */
+.student-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #dfe3f7;
+    background-position: center center;
+    background-size: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgb(67 62 226 / 0.15);
+    border: 2px solid #fff;
+}
+
+/* Student details */
+.student-details {
+    flex-grow: 1;
+    font-size: 12px;
+    color: #7e85a1;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    user-select: text;
+}
+
+.student-details span {
+    font-weight: 400;
+    font-size: 11px;
+    color: #b3b6d5;
+    margin-top: 2px;
+    user-select: text;
+}
+
+/* Student percentage */
+.student-percent {
+    font-weight: 700;
+    font-size: 13px;
+    color: #2c2f4a;
+    min-width: 32px;
+    text-align: right;
+    user-select: text;
+}
+
+/* Attendance report with line chart */
+.attendance-report {
+    position: relative;
+    padding-bottom: 22px;
+}
+.attendance-report-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #7e85a1;
+    font-weight: 600;
+    user-select: none;
+}
+.attendance-report-header select {
+    cursor: pointer;
+    border-radius: 12px;
+    border: 1.5px solid #dee3f0;
+    background-color: white;
+    font-weight: 400;
+    padding: 2px 10px;
+    outline-offset: 2px;
+    min-width: 80px;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="none" height="10" stroke="%237e85a1" stroke-width="2" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>')
+        no-repeat right 8px center;
+    background-size: 12px;
+}
+.attendance-report svg {
+    width: 100%;
+    height: 164px;
+}
+.attendance-report .chart-line {
+    fill: none;
+    stroke: #9289fa;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+.attendance-report .chart-area {
+    fill: #e3e0ffcc;
+    opacity: 0.3;
+}
+.attendance-report .points circle {
+    fill: #433ee2;
+    cursor: default;
+}
+.attendance-report .points text {
+    font-size: 9px;
+    fill: #635f98;
+    user-select: none;
+}
+.attendance-report .axis path,
+.attendance-report .axis line {
+    stroke: #dee3f0;
+    shape-rendering: crispEdges;
+}
+.attendance-report .axis text {
+    fill: #7e85a1;
+    font-size: 11px;
+    user-select: none;
+}
+
+/* Teaching Lessons panel */
+.teaching-lessons {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 5px 12px rgb(67 62 226 / 0.4);
+    padding: 24px 24px 24px 24px;
+    user-select: none;
+}
+.teaching-lessons h3 {
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    color: #2c2f4a;
+    font-size: 16px;
+}
+.course-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* White background for the table */
+}
+
+.course-schedule-table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.course-schedule-table th,
+.course-schedule-table td {
+    border: 1px solid #ddd; /* Light grey borders */
+    padding: 8px 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.course-schedule-table thead th {
+    background-color: #f0f0f0; /* Light grey header background */
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* Specific styling for the 'Days of the Week' header */
+.course-schedule-table thead tr:first-child th:nth-child(2) {
+    background-color: #e0e0e0; /* Slightly darker grey for combined header */
+    color: #333;
+    font-size: 1em;
+}
+
+/* Specific styling for the time column header */
+.course-schedule-table thead tr:first-child th:first-child {
+    background-color: #f0f0f0;
+}
+
+/* Time column headers */
+.course-schedule-table tbody th {
+    background-color: #f9f9f9; /* Slightly different background for time column */
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap; /* Prevent time from wrapping */
+}
+
+/* Styling for the lesson cells */
+.course-schedule-table tbody td {
+    font-size: 0.9em;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Example of specific cell background (like the light blue in your image) */
+/* You would need to apply this to specific cells, e.g., by adding a class or targeting them. */
+/* For instance, if you apply a class "highlight-cell" to those <td>s: */
+.course-schedule-table td.highlight-cell {
+    background-color: #e0f7fa; /* Light blue */
+}
+
+/* Break time specific styling */
+.course-schedule-table td.break-time {
+    background-color: yellow;
+    font-weight: bold;
+    color: #777;
+    text-align: center;
+}
+/* --- Column Specific Coloring --- */
+
+/* Monday Column */
+.course-schedule-table th:nth-child(2),
+.course-schedule-table td:nth-child(2) {
+    background-color: #ebf5ff; /* Light Blue */
+}
+
+/* Tuesday Column */
+.course-schedule-table th:nth-child(3),
+.course-schedule-table td:nth-child(3) {
+    background-color: #f0fff0; /* Light Green */
+}
+
+/* Wednesday Column */
+.course-schedule-table th:nth-child(4),
+.course-schedule-table td:nth-child(4) {
+    background-color: #fff8eb; /* Light Orange */
+}
+
+/* Thursday Column */
+.course-schedule-table th:nth-child(5),
+.course-schedule-table td:nth-child(5) {
+    background-color: #f5f0ff; /* Light Purple */
+}
+
+/* Friday Column */
+.course-schedule-table th:nth-child(6),
+.course-schedule-table td:nth-child(6) {
+    background-color: #ffebf0; /* Light Pink */
+}
+
+/* Saturday Column */
+.course-schedule-table th:nth-child(7),
+.course-schedule-table td:nth-child(7) {
+    background-color: #f0fff5; /* Another Light Green/Aqua */
+}
+
+/* Override break-time background for consistency if it crosses columns */
+/* This ensures the break row keeps its neutral color regardless of column specific styles */
+.course-schedule-table tr td.break-time {
+    background-color: #e0e0e0; /* Neutral grey for break */
+}
+
+/* Adjust top-left empty cell to blend with time column header */
+.course-schedule-table thead tr:nth-child(1) th:nth-child(1) {
+    background-color: #f9f9f9; /* Match tbody th background */
+}
+
+/* Right side panel container */
+.dashboard-right {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Profile box */
+.profile-box {
+    background-color: #eef0fc;
+    border-radius: 18px;
+    box-shadow: 0 14px 44px rgb(56 52 85 / 0.06);
+    padding: 18px 20px 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+}
+.profile-box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #433ee2;
+    object-fit: cover;
+    box-shadow: 0 0 8px #433ee2aa;
+}
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+    color: #2c2f4a;
+}
+.profile-info .name {
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 0 2px 0;
+    user-select: text;
+}
+.profile-info .email {
+    font-size: 12px;
+    color: #7e85a1;
+    font-weight: 400;
+    user-select: text;
+}
+.profile-notification {
+    margin-left: auto;
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    fill: #433ee2;
+}
+.profile-notification svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Calendar card */
+.calendar-card {
+    background-color: #eef0fc;
+    box-shadow: 0 5px 12px rgb(67 62 226 / 0.4);
+    border-radius: 18px;
+    padding: 18px 24px;
+    user-select: none;
+}
+.calendar-card h3 {
+    margin: 0 0 16px 0;
+    color: #2c2f4a;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    font-size: 12px;
+    color: #7e85a1;
+    font-weight: 600;
+    user-select: none;
+}
+
+.calendar-day-name {
+    text-align: center;
+    color: #b3b6d5;
+    font-weight: 600;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.calendar-day {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #7e85a1;
+    cursor: default;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
+}
+
+.calendar-day:hover:not(.empty):not(.active) {
+    background-color: #d6dbfc;
+    color: #433ee2;
+    font-weight: 700;
+}
+
+.calendar-day.empty {
+    pointer-events: none;
+    color: transparent;
+    user-select: none;
+    cursor: default;
+    background: transparent;
+}
+
+.calendar-day.active {
+    background-color: #433ee2;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 5px 13px rgb(67 62 226 / 0.5);
+    cursor: default;
+    user-select: text;
+}
+#calendarDaysGrid {
+    display: grid;
+    grid-template-columns: repeat(
+        7,
+        1fr
+    ); /* Ensure the grid for days also has 7 columns */
+    gap: 5px; /* Same gap as the parent grid */
+    grid-column: 1 / -1; /* Make this div span all 7 columns of its parent grid */
+}
+
+/* My Notes card */
+.notes-card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 14px 44px rgb(56 52 85 / 0.06);
+    padding: 20px 24px 20px 24px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: 460px;
+    overflow-y: auto;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.notes-title {
+    font-weight: 700;
+    font-size: 17px;
+    color: #0f3958;
+    user-select: none;
+}
+.notes-badge {
+    font-weight: 700;
+    font-size: 11px;
+    background-color: #433ee2;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 18px;
+    user-select: none;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+.add-note-btn {
+    background-color: #eef0fc;
+    color: #433ee2;
+    border-radius: 16px;
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    user-select: none;
+    transition: background-color 0.25s ease;
+    flex-shrink: 0;
+}
+.add-note-btn:hover {
+    background-color: #433ee2;
+    color: white;
+    box-shadow: 0 5px 12px rgb(67 62 226 / 0.4);
+}
+
+/* Individual note item */
+.note-item {
+    display: flex;
+    column-gap: 14px;
+    user-select: text;
+    cursor: default;
+}
+
+.note-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #edeaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #433ee2;
+    box-shadow: 0 0 8px #433ee2a0;
+    user-select: none;
+}
+
+/* Different note colors for icon backgrounds & shadows */
+.note-icon.red {
+    background-color: #ffe7e5;
+    color: #ed4e3a;
+    box-shadow: 0 0 8px #ed4e3aa0;
+}
+.note-icon.yellow {
+    background-color: #fff4d7;
+    color: #efc94a;
+    box-shadow: 0 0 8px #efc94aa0;
+}
+.note-icon.green {
+    background-color: #bcf0da;
+    color: #2ea45f;
+    box-shadow: 0 0 8px #2ea45fa0;
+}
+.note-icon.purple {
+    background-color: #edeaff;
+    color: #433ee2;
+    box-shadow: 0 0 8px #433ee2a0;
+}
+
+/* Note text content wrapper */
+.note-text {
+    flex-grow: 1;
+    font-size: 13px;
+    color: #2c2f4a;
+    display: flex;
+    flex-direction: column;
+}
+.note-title {
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    user-select: text;
+    color: #2c2f4a;
+}
+.note-desc {
+    font-weight: 400;
+    color: #7e85a1;
+    font-size: 11px;
+    line-height: 1.25;
+    user-select: text;
+}
+
+.note-options {
+    cursor: pointer;
+    color: #b3b6d5;
+    font-size: 18px;
+    user-select: none;
+    align-self: flex-start;
+    flex-shrink: 0;
+    padding: 4px 6px;
+}
+.note-options:hover {
+    color: #433ee2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .dashboard-body {
+        flex-direction: column;
+    }
+    .dashboard-right {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 460px) {
+    .main-container {
+        padding: 20px 24px 24px 24px;
+    }
+    .card-row {
+        flex-direction: column;
+    }
+    .top-card {
+        min-width: auto;
+        width: 100%;
+    }
+    .dashboard-left,
+    .dashboard-right {
+        min-width: auto;
+        width: 100%;
+    }
+    .teaching-lessons {
+        max-height: none;
+    }
+    .lesson-list {
+        max-height: none;
+    }
+}

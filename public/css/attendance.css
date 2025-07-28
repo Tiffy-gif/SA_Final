@@ -1,0 +1,335 @@
+
+/* General Section Styling */
+.content-section {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Show the section that matches the URL hash */
+.content-section:target {
+    display: block;
+}
+
+/* Default view if no hash is present or on initial load.
+   You might want to set a default section to show, e.g., Dashboard */
+/* If you want Dashboard to be the default shown on initial load without a hash */
+#dashboard-section {
+    display: block; /* Show dashboard by default */
+}
+/* But if a hash is present, the :target rule will override this.
+   If you want *only* the target to show, remove the above block,
+   and ensure your initial page load URL includes a hash like index.html#dashboard-section */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section h1 {
+    color: #4a148c; /* Darker purple, similar to your app's branding */
+    margin-bottom: 10px;
+    font-size: 2em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.content-section h2 {
+    color: #6a1b9a; /* A bit lighter purple */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+p.dashboard-subtitle,
+p.attendance-subtitle {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+/* ===== DASHBOARD SPECIFIC STYLES ===== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.dashboard-card {
+    background-color: #f0e6fa; /* Light purple background for cards */
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card h3 {
+    color: #6a1b9a;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.dashboard-card .card-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dashboard-card .card-value.present {
+    color: #28a745; /* Green */
+}
+.dashboard-card .card-value.absent {
+    color: #dc3545; /* Red */
+}
+.dashboard-card .card-value.late {
+    color: #ffc107; /* Orange */
+}
+.dashboard-card .card-value.rate {
+    color: #007bff; /* Blue */
+}
+
+.dashboard-card .card-description {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.dashboard-chart-area {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.placeholder-chart {
+    height: 250px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+.dashboard-list-area ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.dashboard-list-area ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-quick-actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.action-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    text-decoration: none; /* For anchor tags */
+    display: inline-block; /* For anchor tags to behave like buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button.primary {
+    background-color: #6a1b9a; /* Primary purple */
+    color: white;
+}
+
+.action-button.primary:hover {
+    background-color: #4a148c; /* Darker purple on hover */
+    transform: translateY(-2px);
+}
+
+.action-button.secondary {
+    background-color: #e0e0e0; /* Light grey */
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.action-button.secondary:hover {
+    background-color: #d5d5d5;
+    transform: translateY(-2px);
+}
+
+/* ===== ATTENDANCE SPECIFIC STYLES ===== */
+.attendance-controls {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.attendance-controls input[type="date"],
+.attendance-controls select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 200px;
+}
+
+.load-students-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue for action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.load-students-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.attendance-list-container {
+    margin-bottom: 40px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.attendance-table,
+.past-attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.attendance-table th,
+.past-attendance-table th {
+    background-color: #f0e6fa; /* Light purple header */
+    color: #4a148c;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.attendance-table td,
+.past-attendance-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.attendance-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Radio button styling for attendance */
+.attendance-table input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.2); /* Make radio buttons a bit larger */
+    cursor: pointer;
+}
+
+.submit-attendance-btn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #28a745; /* Green for save action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.submit-attendance-btn:hover {
+    background-color: #218838; /* Darker green */
+}
+
+.past-attendance-view {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.past-attendance-view .control-group {
+    flex-direction: row; /* Keep date range on one line */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.past-attendance-view input[type="date"] {
+    width: 150px;
+}
+
+.filter-past-attendance-btn {
+    padding: 8px 15px;
+    background-color: #6c757d; /* Grey for filter action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-past-attendance-btn:hover {
+    background-color: #5a6268;
+}
+
+.edit-btn {
+    padding: 5px 10px;
+    background-color: #ffc107; /* Orange for edit */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
