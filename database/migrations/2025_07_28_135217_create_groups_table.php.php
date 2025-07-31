@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table){
         $table->id(); // Auto-incrementing ID
         $table->string('name');
-        $table->string('code');
+        $table->string('total_Student');
         $table->timestamps();
         });
     }

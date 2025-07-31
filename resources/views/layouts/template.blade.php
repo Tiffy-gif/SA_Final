@@ -115,4 +115,5 @@
     </div>
     @yield('popup')
 </body>
+@yield('scripts')
 </html>

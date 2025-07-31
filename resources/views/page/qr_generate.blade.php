@@ -66,3 +66,33 @@
         <p class="footer-text">Students will "scan" this QR code by manually entering its content.</p>
     </div>
 @endsection
+@section('scripts')
+    // QR Generator UI (Teacher)
+<script>
+    const qrDateInput = document.getElementById('qrDate');
+    const qrSessionSelect = document.getElementById('qrSession');
+    const qrClassSelect = document.getElementById('qrClassSelect'); // New class select for QR
+    const generateQrBtn = document.getElementById('generateQrBtn');
+    const qrcodeContainer = document.getElementById('qrcodeContainer');
+    const copyQrContentBtn = document.getElementById('copyQrContentBtn');
+
+
+    generateQrBtn.addEventListener('click', generateQRCode);
+        qrDateInput.value = formatDate(new Date()); // Set default date for QR generator
+        copyQrContentBtn.addEventListener('click', copyQrCodeContent); // Event listener for new copy button
+
+        // Event Listeners for Student Layout
+        submitQrBtn.addEventListener('click', submitAttendanceFromQR);
+
+        // Common Event Listeners
+        profileButton.addEventListener('click', toggleProfileDropdown);
+        // Logout button now switches between Teacher and Student roles
+        logoutBtn.addEventListener('click', () => {
+            if (currentUserRole === 'teacher') {
+                setRole('student');
+            } else {
+                setRole('teacher');
+            }
+        });
+</script>
+@endsection

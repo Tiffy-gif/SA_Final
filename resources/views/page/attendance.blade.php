@@ -25,14 +25,17 @@
             <input type="date" id="attendance-date" value="2025-07-13" />
           </div>
           <div class="control-group">
-            <label for="attendance-class">Class/Section:</label>
-            <select id="attendance-class">
-              <option value="">Select a Class</option>
-              <option value="grade-10a">Grade 10A</option>
-              <option value="grade-10b">Grade 10B</option>
-              <option value="grade-11c">Grade 11C</option>
-              <option value="grade-12d">Grade 12D</option>
-            </select>
+            {{-- @foreach($Groups as $items)  --}}
+              <label for="attendance-class">Class/Section:</label>
+              <select id="attendance-class">
+                <option value="">Select a Class</option>
+                {{-- <option value="" >{{ $items->name }}</option> --}}
+                {{-- <option value="grade-10a">Grade 10A</option>
+                <option value="grade-10b">Grade 10B</option>
+                <option value="grade-11c">Grade 11C</option>
+                <option value="grade-12d">Grade 12D</option> --}}
+              </select>
+            {{-- @endforeach --}}
           </div>
           <button class="load-students-btn">Load Students</button>
         </div>

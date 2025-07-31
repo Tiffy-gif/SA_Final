@@ -7,6 +7,8 @@
 @section('styleBlock')
     <link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
     <script src="{{ asset('js/add_class.js') }}"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 @endsection
 
 @section('rightTitle')
@@ -64,7 +66,7 @@
                                 </button>
                             </form>
                             
-                        </td>   
+                        </td>       
                     </tr>
                     
                     @endforeach
@@ -77,29 +79,36 @@
 
 @section('popup')
     <!-- Modal for Add New Class (Vanilla JS controlled) -->
-    <div id="addNewClassModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-8 rounded-lg shadow-xl w-11/12 max-w-lg relative">
-            <div class="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
-                <h2 class="text-xl font-semibold text-purple-700">Add New Class</h2>
-                <button id="closeNewClassModalButton"
-                    class="text-gray-500 hover:text-gray-800 text-2xl leading-none cursor-pointer">&times;</button>
-            </div>
-            <div class="mb-4">
-                <label for="new-class-name" class="block text-gray-700 text-sm font-medium mb-2">Group Name:</label>
-                <input type="text" id="newClassNameInput"
-                    class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="e.g., Grade 12B">
-            </div>
-            <div class="flex justify-end gap-2 pt-4 mt-6 border-t border-gray-200">
+    <form action="{{ route('group.store') }}" method="POST">
+     @csrf
+        <div id="addNewClassModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white p-8 rounded-lg shadow-xl w-11/12 max-w-lg relative">
+                <div class="flex justify-between items-center pb-4 mb-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-purple-700">Add New Class</h2>
+                    <button id="closeNewClassModalButton"
+                        class="text-gray-500 hover:text-gray-800 text-2xl leading-none cursor-pointer">&times;</button>
+                </div>
+                <div class="mb-4">
+                    <label for="new-class-name" class="block text-gray-700 text-sm font-medium mb-2">Group Name:</label>
+                    <input type="text" name="name" id="newClassNameInput" 
+                        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        placeholder="e.g., SU1">
+                    
+                    <label for="new-class-name" class="block text-gray-700 text-sm font-medium mb-2 mt-2">Amount Student:</label>
+                    <input type="text" name="total_Student" id="newClassNameInput" 
+                        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        placeholder="e.g., Number">
+                </div>
+                <div class="flex justify-end gap-2 pt-4 mt-6 border-t border-gray-200">
 
-                <button id="saveNewClassButton"
-                    class="px-4 py-2 bg-green-500 text-white rounded-md font-medium hover:bg-green-600 transition-colors duration-200">Save
-                    Class</button>
-                <button id="cancelNewClassModalButton"
-                    class="px-4 py-2 bg-red-500 text-white rounded-md font-medium hover:bg-red-600 transition-colors duration-200">Cancel</button>
+                    <button id="saveNewClassButton"
+                        class="px-4 py-2 bg-green-500 text-white rounded-md font-medium hover:bg-green-600 transition-colors duration-200">Save Class</button>
+                    <button id="cancelNewClassModalButton"
+                        class="px-4 py-2 bg-red-500 text-white rounded-md font-medium hover:bg-red-600 transition-colors duration-200">Cancel</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <!-- Modal for Edit Class (Vanilla JS controlled) -->
     <div id="editClassModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">

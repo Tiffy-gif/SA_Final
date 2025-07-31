@@ -18,7 +18,7 @@
         {{-- Total Class --}}
         <article class="top-card" tabindex="0" aria-describedby="total-classes-desc">
             <div class="icon" aria-hidden="true">📅</div>
-            <h2>02/08</h2>
+            <h2>03/08</h2>
             <p id="total-classes-desc">Total classes</p>
         </article>
         {{-- Total Student --}}

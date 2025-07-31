@@ -18,6 +18,8 @@ class ClassController extends Controller
     }
 
     
+
+    
     public function su1()
     {
         $Groups = Group::all();
@@ -25,7 +27,11 @@ class ClassController extends Controller
     }
 
 
-
+    public function su2()
+    {
+        // $Groups = Group::all();
+        return view('page.student_dashboard'); //your Blade view file
+    }
     //Show form
     public function edit($id) {
         $group = Group::findOrFail($id);
@@ -36,16 +42,16 @@ class ClassController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string',
-            'student_amount' => 'required|integer',
+            'name' => 'required|regex:/^[A-Za-z0-9\s]+$/',       // only letters and spaces
+            'total_Student' => 'required|integer|min:0',      // only digits
         ]);
 
         $group = Group::findOrFail($id);
         $group->name = $request->input('name');
-        $group->student_amount = $request->input('student_amount');
+        $group->total_Student = $request->input('total_Student');
         $group->save();
 
-        return redirect('/edit-group')->with('success', 'Group updated successfully');
+        return redirect('/manage-class')->with('success', 'Class added successfully!');
     }
 
 
@@ -55,6 +61,22 @@ class ClassController extends Controller
         $group = Group::findOrFail($id);
         $group->delete();
         return redirect()->back()->with('success', 'Group deleted');
+    }
+
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|regex:/^[A-Za-z0-9\s]+$/',
+            'total_Student' => 'required|integer|min:0',
+        ]);
+
+        Group::create([
+            'name' => $request->input('name'),
+            'total_Student' => $request->input('total_Student'),
+        ]);
+
+        return redirect('/manage-class')->with('success', 'Class added successfully!');
     }
 
 }
